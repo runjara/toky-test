@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Leaderboard app</title>
+  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+     <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+    <div class="text-center buttons">
+        <header class="text-center">
+          <h1>Leaderboard</h1>
+        </header>
+        <div class="text-center buttons">
+          <button class="btn btn-primary age" v-on:click="sortBy"  name="age">Age</button>
+          <button class="btn btn-primary" v-on:click="sortBy" name="name">Name</button>
+          <button class="btn btn-primary points" v-on:click="sortBy" name="points">Points</button>
+          <button class="btn btn-primary rank" v-on:click="sortBy" name="rank">Rank</button>
+          <button class="btn btn-primary rank" v-on:click="sortBy" name="realRank">Real Rank</button>
+          <p>Ordered by <span v-text="current"></span>
+        <div>
+        <table class="table table-striped" data-testid="leaderboard-table">
+          <thead>
+            <tr key="head">
+              <th>Age</th>
+              <th>Name</th>
+              <th>Points</th>
+              <th>Rank</th>
+              <th>Real Rank</th>
+            </tr>
+          </thead>
+          <tbody>
+         
+              <tr v-for="user in users">
+                <td>{{ user.age }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.points }}</td>
+                <td>{{ user.rank }}</td>
+                <td>{{ user.realRank }}</td>
+              </tr>
+           
+          </tbody>
+        </table>
+      </div>
+        </div>
+      </div>
+  </div>
+  <script src="index.js"></script>
+  </body>
+</html>
